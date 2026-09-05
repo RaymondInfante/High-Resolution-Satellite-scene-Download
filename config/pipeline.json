@@ -1,0 +1,32 @@
+{
+  "_comment": "Config central de la tuberia. Cambiar rutas/parametros aqui, no en el codigo Python.",
+  "acolite_dir": "/Users/raymondinfante/.aquacdom/acolite",
+  "acolite_python": "/opt/anaconda3/bin/python3",
+  "storage_root": "/Volumes/Ray_SSD/EMC/Projects/Satellite_Pipeline",
+  "_storage_note": "El codigo debe fallar ruidosamente si /Volumes/Ray_SSD no existe -- NUNCA hacer mkdir -p de un path falso en el disco interno (73% lleno). Cuando se migre a S3, solo cambia este valor a 's3://bucket/prefix' y la capa de storage en sp_common.py.",
+  "inventory_csv": "Satellite_Pipeline/inventory/scenes.csv",
+  "log_dir": "Satellite_Pipeline/inventory/logs",
+  "sensors": {
+    "S2": {
+      "enabled": true,
+      "source": "cdse",
+      "netrc_machine": "cdse"
+    },
+    "L89": {
+      "enabled": true,
+      "source": "earthexplorer",
+      "netrc_machine": "earthexplorer",
+      "_note": "activado 2026-08-31 -- consulta M2M ya validada en vivo (26 escenas Landsat reales sobre pr_main_east). Pendiente: primera descarga+ACOLITE real end-to-end."
+    }
+  },
+  "default_cloud_cover": 50,
+  "s2_target_res": 20,
+  "keep_l1_after_processing": false,
+  "protected_dates_file": null,
+  "_protected_dates_note": "si se quiere conservar L1 de fechas puntuales (eventos de sargassum, campanas de campo), poner aqui la ruta a un CSV de fechas protegidas y sp_download.py/sp_acolite.py lo respetaran en vez de borrar.",
+  "acolite_atmospheric_correction_method": "dark_spectrum",
+  "acolite_s2_ancillary_offline": false,
+  "_ancillary_note": "2026-08-31: desactivado permanentemente por ahora. El modo offline (s2_auxiliary_include via AUX_ECMWFT embebido) requiere pygrib+eccodes, que YA estan instalados y funcionando, pero eccodes no logra decodificar el GRIB real que ESA embebe en el baseline N0512 (RuntimeError: Decoding invalid, probado en 3 escenas reales distintas -- no es un problema de paquete faltante sino de tablas GRIB incompatibles). Se uso el camino de red (ancillary_data=True, MERRA-2) que SI funciona y degrada con gracia si falla. Retomar el modo offline mas adelante solo si se justifica (requeriria otra version de eccodes o investigar las tablas GRIB especificas de este baseline).",
+  "max_download_attempts": 3,
+  "max_acolite_workers": 3
+}

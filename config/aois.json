@@ -1,0 +1,9 @@
+{
+  "_comment": "Orden de coordenadas: [S, W, N, E], el formato que espera acolite.shared.limit_wkt (ACOLITE config/defaults.txt:18, comentario 'limit=S,W,N,E'). Revisa/ajusta estas cajas antes de la primera corrida real -- son un punto de partida, no coordenadas finales.",
+  "pr_main_west":   {"limit": [17.90, -67.30, 18.55, -66.40], "note": "PR oeste: Mayaguez, Anasco, Rincon, Cabo Rojo"},
+  "pr_main_east":   {"limit": [17.90, -66.45, 18.50, -65.55], "note": "PR este: San Juan, Fajardo, costa este"},
+  "pr_veril_south": {"limit": [17.60, -67.25, 17.95, -65.60], "note": "Veril sur / plataforma insular sur de PR"},
+  "pr_east_islands":{"limit": [18.05, -65.60, 18.42, -65.20], "note": "Vieques + Culebra"},
+  "pr_west_islands":{"limit": [17.95, -68.05, 18.45, -67.40], "note": "Mona + Desecheo"},
+  "usvi":           {"limit": [17.60, -65.10, 18.45, -64.50], "note": "St. Thomas / St. John / St. Croix"}
+}

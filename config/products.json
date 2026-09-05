@@ -1,0 +1,25 @@
+{
+  "_comment": "Cada set define parametros l2w_parameters de ACOLITE. 'common' aplica a S2 y L89. Los overrides por sensor se anaden a 'common' (no lo reemplazan). Nombres verificados contra config/parameter_labels.txt y acolite_l2w.py del clon en ~/.aquacdom/acolite (HEAD 64a02ff, 2026-07-30).",
+  "wq": {
+    "common": ["chl_oc3", "chl_ci", "TUR_Dogliotti2015", "TUR_Nechad2016_665", "SPM_Nechad2016_665"],
+    "S2":  ["chl_re_mishra", "TSS_Jiang2023", "ndci"],
+    "L89": ["TSS_Jiang2021"]
+  },
+  "sargassum": {
+    "common": ["fai", "fai_rhot", "fait", "ndvi"],
+    "S2": [],
+    "L89": []
+  },
+  "clarity": {
+    "_comment": "ACOLITE no tiene ningun algoritmo de CDOM (verificado: 'cdom' solo aparece como nombre de variable XML en el codigo fuente). qaa_v6_a_443 es el proxy mas cercano de absorcion total. aCDOM real se calcula aparte en sp_cdom.py a partir de rhos_*/Rrs_* -- ver ese script.",
+    "common": ["qaa_v6_Kd_490", "qaa_v6_KPAR_Lee", "qaa_v6_Zeu_Lee", "qaa_v6_a_443", "p3qaa_zSD"],
+    "S2": [],
+    "L89": []
+  },
+  "reflectance": {
+    "_comment": "Set pesado -- ver advertencia de tamano en el plan. Medir GB reales en la validacion antes de dejarlo como default de una corrida grande.",
+    "common": ["rhos_*", "Rrs_*"],
+    "S2": [],
+    "L89": []
+  }
+}
