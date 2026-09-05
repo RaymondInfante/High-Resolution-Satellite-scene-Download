@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Satellite_Pipeline
 
 Descarga y procesamiento por lotes de Sentinel-2 y Landsat 8/9, con ACOLITE, para
@@ -100,3 +101,6 @@ corrida real con L9.
 estado estan (`download_status`, `acolite_status`). Se commitea al repo (sigue
 la convencion de `Emisario/checkpoints/`, tambien versionado). `inventory/logs/`
 esta en `.gitignore`.
+=======
+# High-Resolution-Satellite-scene-Download
+>>>>>>> fecca6c97b045ad9d32bfd5aa8989389240b8607
